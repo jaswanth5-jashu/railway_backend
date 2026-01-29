@@ -100,5 +100,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # ---------------- CORS ----------------
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+        "https://vercal_frontend.vercel.app",
 ]
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".railway.app"]
+
