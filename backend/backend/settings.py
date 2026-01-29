@@ -13,7 +13,8 @@ load_dotenv(BASE_DIR / ".env")  # Load .env once at the top
 # ---------------- SECURITY ----------------
 SECRET_KEY = 'django-insecure-ueaj1recwi_e&8o5!jl*#o7323&kn64-l0m5=!423k+b^5n=d5'
 DEBUG = os.getenv("DEBUG", "True") == "True"
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 # ---------------- APPLICATIONS ----------------
 INSTALLED_APPS = [
@@ -30,6 +31,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -97,11 +99,16 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # ---------------- CORS ----------------
 CORS_ALLOWED_ORIGINS = [
         "https://vercal_frontend.vercel.app",
 ]
+DEBUG = False
+
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".railway.app"]
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
